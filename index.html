@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="./css/style.css"/>
+    <!-- Materialize CSS -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css"> -->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <title>Random Color Scheme</title>
+</head>
+<body>
+    <nav>
+        <nav>
+            <div id='nav-bar' class="nav-wrapper indigo lighten-2">
+                <a href="#" class="brand-logo">SimplePalette</a>
+                <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Source</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+        <ul class="sidenav" id="mobile-menu">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Source</a></li>
+        </ul>
+    </nav>
+
+    <br/>
+    <br/>
+
+    <div class="container">
+        <!-- color swatches -->
+        <div class="row">
+            <div class="col l4 m3 s2"></div>
+            <div class="col l2 m3 s4">
+                <p class="center-align">Primary Color</p>
+            </div>
+            <div id="primary-swatch" class="swatch col l2 m3 s4 tooltipped" data-position="right" data-tooltip="Click to copy">
+                <div id="primary-text" class="swatch-text"></div>
+            </div>
+            <div class="col l4 m3 s2"></div>
+        </div>
+        <div class="row">
+            <div class="col l4 m3 s2"></div>
+            <div class="col l2 m3 s4">
+                <p class="center-align">Secondary Color</p>
+            </div>
+            <div id="secondary-swatch" class="swatch col l2 m3 s4 tooltipped" data-position="right" data-tooltip="Click to copy">
+                <div id="secondary-text" class="swatch-text"></div>
+            </div>
+            <div class="col l4 m3 s2"></div>
+        </div>
+        <div class="row">
+            <div class="col l4 m3 s2"></div>
+            <div class="col l2 m3 s4">
+                <p class="center-align">Accent Color</p>
+            </div>
+            <div id="tertiary-swatch" class="swatch col l2 m3 s4 tooltipped" data-position="right" data-tooltip="Click to copy">
+                <div id="tertiary-text" class="swatch-text"></div>
+            </div>
+            <div class="col l2 m3 s2"></div>
+        </div>
+        <!-- /color swatches -->
+        <!-- generate button -->
+        <div class="row">
+            <div class="col l5 m4 s2"></div>
+            <div class="col l2 m4 s8 center-align">
+                <a id="generate-button" class="indigo lighten-2 waves-effect waves-light btn-large">Generate</a>
+            </div>
+            <div class="col l5 m4 s2"></div>
+        </div>
+        <!-- /generate button -->
+        <!-- settings panel -->
+        <div class="row">
+            <div class="col l4 m3 s2"></div>
+            <div class="col l4 m6 s8 center-align">
+                <ul class="collapsible">
+                    <li>
+                        <div class="collapsible-header">
+                            <i class="material-icons">palette</i>Theming</div>
+                        <div class="collapsible-body">
+                            <div class="section center">
+                                <h5>Style</h5>
+                                <form id="boldness-form" class="settings-form" action="#">
+                                    <label class="settings-label">
+                                        <input id="boldness-reserved" class="with-gap" name="scheme-selector" type="radio" />
+                                        <span>Reserved</span>
+                                    </label>
+                                    <label class="settings-label">
+                                        <input id="boldness-balanced" class="with-gap" name="scheme-selector" checked="checked" type="radio" />
+                                        <span>Balanced</span>
+                                    </label>
+                                    <label class="settings-label">
+                                        <input id="boldness-bold" class="with-gap" name="scheme-selector" type="radio" />
+                                        <span>Bold</span>
+                                    </label>
+                                </form>
+                            </div>
+                            <div class="section center">
+                                <h5>Temperature</h5>
+                                <form id="warmth-form" class="settings-form" action="#">
+                                    <label class="settings-label">
+                                        <input id="warmth-cool" class="with-gap" name="temperature-selector" type="radio"/>
+                                        <span>Cool</span>
+                                    </label>
+                                    <label class="settings-label">
+                                        <input id="warmth-warm" class="with-gap" name="temperature-selector" type="radio" />
+                                        <span>Warm</span>
+                                    </label>
+                                </form>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- <li>
+                        <div class="collapsible-header"><i class="material-icons">build</i>Advanced</div>
+                        <div class="collapsible-body"><span>Lorem ipsum dolor</span></div>
+                    </li> -->
+                </ul>
+            </div>
+            <div class="col l4 m3 s2"></div>
+        </div>
+        <!-- /settings panel -->
+    </div>
+
+    <script src="./js/script.js"></script>
+    <!-- Materialize JS -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script> -->
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+
+</html>
