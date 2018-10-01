@@ -3,7 +3,7 @@
     height: 52px;
     border-radius: 3px;
     cursor: pointer;
-    display: flex;
+    display: flex !important; /* Needs to be !important to stop Materialize override */
     justify-content: center;
     align-items: center;
 }
@@ -25,4 +25,8 @@
     color: transparent;
     filter: invert(1) grayscale(1) contrast(100);
     text-transform: uppercase;
+}
+
+.brand-logo {
+    margin-left: 10px;
 }

@@ -156,7 +156,14 @@ function getRandomNumber(min, max) {
 }
 
 function updateClipboard(newClip) {
-    navigator.clipboard.writeText(newClip);
+    navigator.clipboard.writeText(newClip).then(
+        () => {
+            console.log("copy success");
+        },
+        () => {
+            console.error("copy fail", err);
+        }
+    );
 }
 
 //  ==================
@@ -198,7 +205,6 @@ function initAll() {
     // Add event listeners for click to copy
     const swatches = document.getElementsByClassName('swatch-text');
     for (let i = 0; i < swatches.length; i++) {
-        console.log(swatches[i]);
         swatches[i].addEventListener('click', function() {
             updateClipboard(swatches[i].innerHTML);
         });
