@@ -156,23 +156,24 @@ function getRandomNumber(min, max) {
 }
 
 function updateClipboard(newClip) {
-    navigator.clipboard.writeText(newClip).then(
-        () => {
-            console.log("copy success");
-        },
-        () => {
-            console.error("copy fail", err);
-        }
-    );
+    navigator.clipboard.writeText(newClip);
 }
 
 //  ==================
 //  === Initialize ===
 //  ==================
 
+document.addEventListener('DOMContentLoaded', function() {
+    let color = rgbToHsl(hexToRgb(randomColor()));
+    displayColorScheme(color, 165);
+    setSwatchText(color, 165);
+
+    M.AutoInit();
+    initAll();
+});
+
 function initAll() {
-    // Add event listener for GENERATE button
-    document.getElementById('generate-button').addEventListener('click', function () {
+    document.getElementById('generate-button').addEventListener('click', event => {
         let color = rgbToHsl(hexToRgb(randomColor()));
         color.s = getRandomNumber(0.5, 1);
         color.l = getRandomNumber(0.5, 0.8);
@@ -180,7 +181,7 @@ function initAll() {
 
         // Color boldness 
         // color schemes: analogous = 30, split complementary = 165, triadic = 120
-        if (document.getElementById('boldness-reserved').checked) {
+        if(document.getElementById('boldness-reserved').checked) {
             diff = 30;
         }
         if (document.getElementById('boldness-balanced').checked) {
@@ -202,21 +203,15 @@ function initAll() {
         setSwatchText(color, diff);
     });
 
-    // Add event listeners for click to copy
-    const swatches = document.getElementsByClassName('swatch-text');
-    for (let i = 0; i < swatches.length; i++) {
-        swatches[i].addEventListener('click', function() {
-            updateClipboard(swatches[i].innerHTML);
-        });
+    let swatches = document.getElementsByClassName('swatch');
+    for (s of swatches) {
+        s.addEventListener('click', (event) => {
+            if (event.target.className === 'swatch-text') {
+                updateClipboard(event.target.innerHTML);
+            }
+            else if (event.target.className.includes('swatch ')) {
+                updateClipboard(event.target.children[0].innerHTML);
+            }
+        })
     }
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    let color = rgbToHsl(hexToRgb(randomColor()));
-    displayColorScheme(color, 165);
-    setSwatchText(color, 165);
-
-    initAll();
-    M.AutoInit();
-});
-
