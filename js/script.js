@@ -207,10 +207,18 @@ function initAll() {
     for (s of swatches) {
         s.addEventListener('click', (event) => {
             if (event.target.className === 'swatch-text') {
-                updateClipboard(event.target.innerHTML);
+                let el = event.target;
+                updateClipboard(el.innerHTML);
+                M.toast({html: "Copied!"});
+                
             }
             else if (event.target.className.includes('swatch ')) {
-                updateClipboard(event.target.children[0].innerHTML);
+                let el = event.target.children[0];
+                updateClipboard(el.innerHTML);
+                M.toast({ html: "Copied!",
+                          displayLength: 1000,
+                          classes: "tost-copied"
+                         });
             }
         })
     }
